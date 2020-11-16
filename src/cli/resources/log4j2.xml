@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name="Default" target="SYSTEM_ERR">
+			<PatternLayout pattern="%d{HH:mm:ss,SSS} %-5p [%C] %m%n"/>
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Logger name="org.apache.log4j.xml" level="warn"/>
+		<!-- suppress CG "Warning: too many turns and/or too much time allocated to players per turn (25050ms/30000ms)" -->
+		<Logger name="com.codingame.gameengine.core.GameManager" level="error"/>
+		<Root level="warn">
+			<AppenderRef ref="Default"/>
+		</Root>
+	</Loggers>
+</Configuration>
