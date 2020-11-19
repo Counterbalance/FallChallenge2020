@@ -36,6 +36,7 @@ public class CommandLineInterface {
 				   .addOption("p2name", true, "Optional. Player 2 display name.")
                    .addOption("league", true, "Optional. League level.")
                    .addOption("seed", true, "Optional. Seed.")
+                   .addOption("timeout", true, "Optional. Bot timeout.")
 				   .addOption("s", false, "Server mode")
 				   .addOption("l", true, "File output for logs")
 				   .addOption("d", true, "Referee initial data");
@@ -76,6 +77,10 @@ public class CommandLineInterface {
 
             if (cmd.hasOption("seed")) {
                 runner.setSeed( Long.valueOf( cmd.getOptionValue("seed") ) );
+            }
+
+            if (cmd.hasOption("timeout")) {
+                System.setProperty("turn.maxtime", cmd.getOptionValue("timeout") );
             }
 
 
