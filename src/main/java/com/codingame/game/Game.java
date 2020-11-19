@@ -565,7 +565,7 @@ public class Game {
     }
 
     private Optional<Spell> getSpellById(int id) {
-        return Stream.of(
+        Stream<Spell> spells = Stream.of(
             deliveries.stream(),
             tome.stream(),
             delivered.stream()
@@ -573,7 +573,8 @@ public class Game {
             gameManager.getPlayers().stream()
                 .flatMap(p -> p.getSpells().stream())
         )
-            .flatMap(Function.identity())
+            .flatMap(Function.identity());
+        return spells
             .filter(spell -> spell.getId() == id)
             .findFirst();
     }
